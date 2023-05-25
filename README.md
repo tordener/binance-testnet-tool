@@ -19,7 +19,7 @@ Pretty sure that you will need node version > 17 to use fetch or crypto
 ## Function List
 
 
-- `nancy.epochAt()` - helps with dealing with the time parameters for setting trades
+- `quant.epochAt()` - helps with dealing with the time parameters for setting trades
 - `nancy.snipe()` - doesn't work atm, but this helps you get into and out of a trade with the least spread
 - `nancy.spread()` - gets the spread and volume for bids/asks, and the market price
 - `nancy.cropDepth()` - trims down the spread for ease of reading or manipulating
