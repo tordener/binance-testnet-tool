@@ -86,7 +86,7 @@ nancy.spread()
     )
 ```
 output
-```JSON
+```javascript
 {
   symbol: 'LTCUSDT',
   bidPrice: '90.03',
@@ -94,6 +94,42 @@ output
   askPrice: '90.11',
   askQty: '69.260',
   time: 1685048469757
+}
+```
+
+
+## `nancy.cropDepth()`
+Calls the /depth endpoint and returns an object containing shortened arrays with the price points and associated volumes nearest the current market price
+
+### Parameters
+- `range` - integer - how many price points above and below market price to return
+
+### Example to get the depth 5 price points below market price and 5 price points above market price
+```javascript
+nancy.cropDepth(5)
+    .then(
+        cropped_depth => {
+            console.log(cropped_depth);
+        }
+    )
+```
+output
+```javascript
+{
+  above_mkt: [
+    [ '90.11', '23.100' ],
+    [ '90.14', '32.430' ],
+    [ '90.17', '41.497' ],
+    [ '90.20', '23.454' ],
+    [ '90.23', '53.462' ]
+  ],
+  below_mkt: [
+    [ '90.03', '143.074' ],
+    [ '90.00', '34.109' ],
+    [ '89.97', '21.103' ],
+    [ '89.94', '77.768' ],
+    [ '89.91', '14.309' ]
+  ]
 }
 ```
 # Example Program
