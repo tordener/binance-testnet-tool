@@ -11,6 +11,7 @@ Pretty sure that you will need node version > 17 to use fetch or crypto
 - `URL` - this tool MIGHT work on the actual binance livenet, haven't tested it yet. But if you want to try it, change these URLs to Binance's livenet
 - `SYMBOL` - the symbol you want the bot to trade
 - `TRADE_SIZE` - how much of the symbol to trade
+- `SAMPLE_SIZE` - how many price points to use for doing your math
 - `RECVWINDOW` - how many miliseconds a request is valid for after being sent to binance's API
 - `TTL` - how long an unfilled order stays in the orders list before being cancelled (only good if not using GTC)
 - `TIME_IN_FORCE` - the type of order to place GTC is default
@@ -182,6 +183,40 @@ output
 ```
 90.11
 ```
+
+## `nancy.trades()`
+Gets the recent trades for the specified symbol
+### Parameters
+- `show` - boolean - if true, it will log the results to the console
+
+### Example to get recent trades for the symbol
+```javascript
+nancy.trades(true);
+```
+output
+```javascript
+[
+  {
+    id: 33091896,
+    price: '90.08',
+    qty: '21.530',
+    quoteQty: '1939.42',
+    time: 1685049667605,
+    isBuyerMaker: false
+  },
+  {
+    id: 33091897,
+    price: '90.06',
+    qty: '2.987',
+    quoteQty: '269.00',
+    time: 1685049673258,
+    isBuyerMaker: true
+  },
+  ...{...}
+]
+```
+
+
 # Example Program
 
 (BEWARE) if you run this code it will start making some trades on your testnet account based on the market conditions
