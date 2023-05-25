@@ -78,9 +78,24 @@ Takes no parameters
 
 ### Example to get the spread
 ```javascript
-    spread()
+nancy.spread()
+    .then(
+        spread_data => {
+            console.log(spread_data);
+        }
+    )
 ```
-
+output
+```JSON
+{
+  symbol: 'LTCUSDT',
+  bidPrice: '90.03',
+  bidQty: '124.184',
+  askPrice: '90.11',
+  askQty: '69.260',
+  time: 1685048469757
+}
+```
 # Example Program
 
 (BEWARE) if you run this code it will start making some trades on your testnet account based on the market conditions
