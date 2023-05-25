@@ -38,7 +38,7 @@ Pretty sure that you will need node version > 17 to use fetch or crypto
 ***
 # Function Usage
 
-## `quant.epochAt()`
+## `quant.epochAt(range)`
 Makes it easier to go back or forward in unix-time by seconds, minutes, hours, or days
 ### Parameters
 - `time_unit` - `'sec'`, `'min'`, `'hr'`, `'day'`
@@ -55,7 +55,7 @@ output
 1685048269997
 ```
 
-## `nancy.snipe()`
+## `nancy.snipe(direction, acceptable_loss)`
 
 ### Currently dysfunctional
 
@@ -99,7 +99,7 @@ output
 ```
 
 
-## `nancy.cropDepth()`
+## `nancy.cropDepth(range)`
 Calls the /depth endpoint and returns an object containing shortened arrays with the price points and associated volumes nearest the current market price
 
 ### Parameters
