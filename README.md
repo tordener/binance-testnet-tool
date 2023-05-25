@@ -7,23 +7,24 @@ Pretty sure that you will need node version > 17 to use fetch or crypto
 ## Function List
 
 
-- `nancy.epochAt(time_unit, quantity_int)`
-- `nancy.snipe()`
-- `nancy.spread()`
-- `nancy.cropDepth()`
-- `nancy.book()`
-- `nancy.price()`
-- `nancy.trades()`
-- `nancy.order()`
-- `nancy.orders()`
-- `nancy.cancelOrder()`
-- `nancy.risk()`
-- `nancy.candles()`
-- `nancy.candles("1m", start, Date.now() - 1, 50)`
-- `nancy.balance()`
-- `nancy.account()`
+- `nancy.epochAt()` - helps with dealing with the time parameters for setting trades
+- `nancy.snipe()` - doesn't work atm, but this helps you get into and out of a trade with the least spread
+- `nancy.spread()` - gets the spread and volume for bids/asks, and the market price
+- `nancy.cropDepth()` - trims down the spread for ease of reading or manipulating
+- `nancy.book()` - gets the market depth
+- `nancy.price()` - gets current market price for the symbol
+- `nancy.trades()` - gets the recent trades for the symbol
+- `nancy.order()` - places an order for the symbol at a specified price
+- `nancy.orders()` - gets your open orders on the account
+- `nancy.cancelOrder()` - cancels the chosen order
+- `nancy.risk()` - gets all your positions
+- `nancy.candles()` - gets candlestick data for a range of time
+- `nancy.balance()` - gets the account balance
+- `nancy.account()` - gets general account information
 
 ***
+# Function Usage
+
 ## `nancy.epochAt()`
 Makes it easier to go back or forward in unix-time by seconds, minutes, hours, or days
 ### Parameters
@@ -36,10 +37,9 @@ Makes it easier to go back or forward in unix-time by seconds, minutes, hours, o
     epochAt('sec', 20, -1)
 ```
 
-# Usage Example
+# Example Program
 
 (BEWARE) if you run this code it will start making some trades on your testnet account based on the market conditions
-## Example program description:
 
 ### Trade Logic
 
