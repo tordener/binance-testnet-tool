@@ -1,5 +1,8 @@
 # binance-testnet-tool
-Some functions to do a bit of trading on the testnet API
+Some pretty simple functions to do a bit of trading on Binance's testnet API with node
+
+Pretty sure that you will need node version > 17 to use fetch or crypto
+- A few of these functions are unfinished, check the doc block description when you are implementing them first
 
 ## Function List
 
@@ -21,13 +24,14 @@ Some functions to do a bit of trading on the testnet API
 - `nancy.account()`
 
 
-## Example Usage:
+# Usage Example
 
 (BEWARE) if you run this code it will start making some trades on your testnet account based on the market conditions
-# Example program description:
-```
-    trade logic:
+## Example program description:
 
+### Trade Logic
+
+```
     1)
         a. get recent trades -> separate times/prices
         b. perform linear regression on trades data
@@ -46,6 +50,7 @@ Some functions to do a bit of trading on the testnet API
                 if they are the same, keep the order up.
                 if they are different, (create a function that will close on a time schedule)
 ```
+# Program Code
 
 ```javascript
 require('dotenv').config(); 
