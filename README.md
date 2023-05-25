@@ -1,13 +1,119 @@
 # binance-testnet-tool
 Some functions to do a bit of trading on the testnet API
 
-<h2>Example Usage</h2>
-<code>
+## Function List
+
 ```javascript
-function test(testy){
-    let testery = testy;
-    return testery;
-}
+nancy.epochAt('min', 5);
+nancy.snipe()
+nancy.spread()
+nancy.cropDepth()
+nancy.book()
+nancy.price()
+nancy.trades()
+nancy.order()
+nancy.orders()
+nancy.cancelOrder()
+nancy.risk()
+nancy.candles()
+nancy.candles("1m", start, Date.now() - 1, 50);
+nancy.balance();
+nancy.account();
 ```
-</code>
+
+## Example Usage
+
+```javascript
+require('dotenv').config(); 
+const nancy = require('./nancy.js');
+const quant = require('./quant.js');
+let numbers = require('numbers');
+
+setInterval(function(){
+    let recent_trades;
+    let lin_reg_mem;
+    let now = Date.now();
+    let in_1_min = now + 60000;
+    let order = {};
+    let trade_hist = [];
+    nancy.trades()
+    .then(
+        data => {
+            recent_trades = data;
+        }   
+    ).then(
+        data => {
+            let times = [];
+            let prices = [];
+            for(let a = 0; a < recent_trades.length; a++){
+                times.push(recent_trades[a].time);
+                prices.push(parseFloat(recent_trades[a].price));
+            }
+            let lin_reg = numbers.statistic.linearRegression(times, prices);
+            lin_reg_mem = lin_reg;
+        }
+    ).then(
+        data => {
+            nancy.price().then(
+                data => {
+                    let current_price = data;
+                    let pred = lin_reg_mem(in_1_min);
+                    let order_format = {
+                        'side' : null,
+                        'prediction': null,
+                        'price' : null,
+                        'time' : null,
+                        'fee' : null,
+                        'size' : null,
+                        'profit' : null,
+                        'net' : null
+                    }
+                    if((pred - current_price) > 0){
+                        order_format.side = 'BUY';
+                        order_format.prediction = pred;
+                        order_format.price = current_price;
+                        order_format.time = now;
+                        order_format.fee = (current_price) * process.env.FEE * 5;
+                        order_format.size = 5;
+                        order_format.profit = (Math.abs(pred - current_price)) * 5;
+                        order_format.net = ((Math.abs(pred - current_price)) * 5) - ((current_price) * process.env.FEE * 5);
+                        order = order_format;
+
+                    }
+                    else if((pred - current_price) < 0){
+                        order_format.side = 'SELL';
+                        order_format.prediction = pred;
+                        order_format.price = current_price;
+                        order_format.time = now;
+                        order_format.fee = (current_price) * process.env.FEE * 5;
+                        order_format.size = 5;
+                        order_format.profit = (Math.abs(pred - current_price)) * 5;
+                        order_format.net = ((Math.abs(pred - current_price)) * 5) - ((current_price) * process.env.FEE * 5);
+                        order = order_format;
+
+                    }
+                    console.log(order);
+                }
+                ).then(
+                    data => {
+                        if(order.net >= 0.1){
+                            console.log('********PLACE ORDER********');
+                            trade_hist.push([order.price, order.time]);
+                        }else{
+                            console.log('********wait********');
+                        }
+                    }
+                    ).then(
+                        data => {
+                            nancy.cropDepth(5).then(
+                                data => {
+                            //console.log(data);
+                        }
+                    )
+                }
+            )
+        }
+    );
+} ,1000);
+```
 
