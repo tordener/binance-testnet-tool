@@ -37,7 +37,7 @@ Pretty sure that you will need node version > 17 to use fetch or crypto
 ***
 # Function Usage
 
-## `nancy.epochAt()`
+## `quant.epochAt()`
 Makes it easier to go back or forward in unix-time by seconds, minutes, hours, or days
 ### Parameters
 - `time_unit` - `'sec'`, `'min'`, `'hr'`, `'day'`
@@ -46,7 +46,12 @@ Makes it easier to go back or forward in unix-time by seconds, minutes, hours, o
 
 ### Example to get the timestamp 20 seconds ago
 ```javascript
-    epochAt('sec', 20, -1)
+let twenty_seconds_ago = quant.epochAt('sec', 20, -1);
+console.log(twenty_seconds_ago);
+```
+output
+```
+1685048269997
 ```
 
 ## `nancy.snipe()`
