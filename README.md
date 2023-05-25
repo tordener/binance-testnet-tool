@@ -3,25 +3,49 @@ Some functions to do a bit of trading on the testnet API
 
 ## Function List
 
-```javascript
-nancy.epochAt('min', 5);
-nancy.snipe()
-nancy.spread()
-nancy.cropDepth()
-nancy.book()
-nancy.price()
-nancy.trades()
-nancy.order()
-nancy.orders()
-nancy.cancelOrder()
-nancy.risk()
-nancy.candles()
-nancy.candles("1m", start, Date.now() - 1, 50);
-nancy.balance();
-nancy.account();
-```
 
-## Example Usage
+- `nancy.epochAt(time_unit, quantity_int)`
+- `nancy.snipe()`
+- `nancy.spread()`
+- `nancy.cropDepth()`
+- `nancy.book()`
+- `nancy.price()`
+- `nancy.trades()`
+- `nancy.order()`
+- `nancy.orders()`
+- `nancy.cancelOrder()`
+- `nancy.risk()`
+- `nancy.candles()`
+- `nancy.candles("1m", start, Date.now() - 1, 50)`
+- `nancy.balance()`
+- `nancy.account()`
+
+
+## Example Usage:
+
+(BEWARE) if you run this code it will start making some trades on your testnet account based on the market conditions
+# Example program description:
+```
+    trade logic:
+
+    1)
+        a. get recent trades -> separate times/prices
+        b. perform linear regression on trades data
+    2)
+        a. get market price
+        b. create a "prediction" object ex:
+            prediction = {
+                'side' : 1,
+                'price' : 75.15,
+                'projection' : 75.81,
+                'enter' : 1 // enter is the abs((price - projection) - fee)
+            }
+        c. check orders
+            i. if no orders exist, check prediction.enter (if 1 - place order, if 0 - wait)
+            ii. if orders exist, check prediction.side, and compare to order.side
+                if they are the same, keep the order up.
+                if they are different, (create a function that will close on a time schedule)
+```
 
 ```javascript
 require('dotenv').config(); 
