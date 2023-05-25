@@ -37,6 +37,24 @@ Makes it easier to go back or forward in unix-time by seconds, minutes, hours, o
     epochAt('sec', 20, -1)
 ```
 
+## `nancy.snipe()`
+
+### Currently dysfunctional
+
+* Snipe tries to get in or out of a trade as close to the market price as possible,
+* The user specifies the acceptable loss parameter (how great of a difference from market price), and it will search for entry/exit points
+* that are within that value
+
+### Parameters
+
+- `direction` - boolean - the side of the originating order (true for buy, false for sell)
+- `acceptable_loss` - float - acceptable difference from market price
+
+### Example to exit a BUY position at most 5.93 units from market price
+```javascript
+    snipe(1, 5.93)
+```
+
 # Example Program
 
 (BEWARE) if you run this code it will start making some trades on your testnet account based on the market conditions
