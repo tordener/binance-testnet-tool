@@ -132,6 +132,37 @@ output
   ]
 }
 ```
+
+## `nancy.book()`
+Returns the full market depth for the specified symbol (returns a lot of elements)
+### Parameters
+Takes no parameters
+
+### Example to get the depth
+```javascript
+nancy.book()
+    .then(
+        book_data => {
+            console.log(book_data);
+        }
+    )
+```
+output
+```javascript
+{
+  lastUpdateId: 31988608156,
+  E: 1685049549981,
+  T: 1685049549965,
+  bids: [
+    [ '90.06', '59.724' ],
+    [ '90.03', '77.984' ],
+    [ '90.00', '104.461' ],...],
+   asks: [
+   [ '90.06', '59.724' ],
+    [ '90.03', '77.984' ],
+    [ '90.00', '104.461' ],...]
+}
+```
 # Example Program
 
 (BEWARE) if you run this code it will start making some trades on your testnet account based on the market conditions
