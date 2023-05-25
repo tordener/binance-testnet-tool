@@ -163,6 +163,25 @@ output
     [ '90.00', '104.461' ],...]
 }
 ```
+
+## `nancy.price()`
+Returns the market price for the specified symbol
+### Parameters
+Takes no parameters
+
+### Example to get the timestamp 20 seconds ago
+```javascript
+nancy.price()
+    .then(
+        price_data => {
+            console.log(price_data);
+        }
+    )
+```
+output
+```
+90.11
+```
 # Example Program
 
 (BEWARE) if you run this code it will start making some trades on your testnet account based on the market conditions
