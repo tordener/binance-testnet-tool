@@ -38,7 +38,7 @@ Pretty sure that you will need node version > 17 to use fetch or crypto
 ***
 # Function Usage
 
-## `quant.epochAt(range)`
+## `quant.epochAt(time_unit, how_far, tense)`
 Makes it easier to go back or forward in unix-time by seconds, minutes, hours, or days
 ### Parameters
 - `time_unit` - `'sec'`, `'min'`, `'hr'`, `'day'`
