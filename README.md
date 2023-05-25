@@ -23,6 +23,18 @@ Pretty sure that you will need node version > 17 to use fetch or crypto
 - `nancy.balance()`
 - `nancy.account()`
 
+***
+## `nancy.epochAt()`
+Makes it easier to go back or forward in unix-time by seconds, minutes, hours, or days
+### Parameters
+- `time_unit` - `'sec'`, `'min'`, `'hr'`, `'day'`
+- `how_far` - integer value of the chosen time unit
+- `tense` - integer - `-1` = past `1` = future
+
+### Example to get the timestamp 20 seconds ago
+```javascript
+    epochAt('sec', 20, -1)
+```
 
 # Usage Example
 
@@ -136,7 +148,6 @@ setInterval(function(){
                         data => {
                             nancy.cropDepth(5).then(
                                 data => {
-                            //console.log(data);
                         }
                     )
                 }
