@@ -3,6 +3,18 @@ Some pretty simple functions to do a bit of trading on Binance's testnet API wit
 
 Pretty sure that you will need node version > 17 to use fetch or crypto
 - A few of these functions are unfinished, check the doc block description when you are implementing them first
+- To configure this, edit the .env file with your API key and secret
+
+### .env file configuration
+- `API_KEY` - your api key
+- `SECRET_KEY` - your secret key
+- `URL` - this tool MIGHT work on the actual binance livenet, haven't tested it yet. But if you want to try it, change these URLs to Binance's livenet
+- `SYMBOL` - the symbol you want the bot to trade
+- `TRADE_SIZE` - how much of the symbol to trade
+- `RECVWINDOW` - how many miliseconds a request is valid for after being sent to binance
+- `TTL` - same kind of deal
+- `TIME_IN_FORCE` - the type of order to place GTC is default
+- `FEE` - set this variable to binance's fee so you can accurately calculate profits before making a trade 
 
 ## Function List
 
