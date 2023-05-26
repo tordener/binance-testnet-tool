@@ -170,7 +170,7 @@ Returns the market price for the specified symbol
 ### Parameters
 Takes no parameters
 
-### Example to get the timestamp 20 seconds ago
+### Example to get the market price
 ```javascript
 nancy.price()
     .then(
