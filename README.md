@@ -41,9 +41,9 @@ Pretty sure that you will need node version > 17 to use fetch or crypto
 ## `quant.epochAt(time_unit, how_far, tense)`
 Makes it easier to go back or forward in unix-time by seconds, minutes, hours, or days
 ### Parameters
-- `time_unit` - `'sec'`, `'min'`, `'hr'`, `'day'`
-- `how_far` - integer value of the chosen time unit
-- `tense` - integer - `-1` = past `1` = future
+- `time_unit` - string - takes arguments: `'sec'`, `'min'`, `'hr'`, `'day'`
+- `how_far` - integer - the value of the chosen time unit
+- `tense` - integer - past: `-1`  future: `1`
 
 ### Example to get the timestamp 20 seconds ago
 ```javascript
