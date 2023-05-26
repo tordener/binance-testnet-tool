@@ -218,7 +218,7 @@ output
 ```
 
 ## `nancy.order(side, price)`
-Places an order for the specified symbol at the specified price, courteously returns 
+Places an order for the specified symbol at the specified price
 ### Parameters
 - `side` - string - `'BUY'` for long/buy, `'SELL'` for short/sell
 - `price` - float - price at which the order is to be filled (check precision requirements on binance docs)
