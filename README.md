@@ -246,6 +246,53 @@ output
 TO DO (should be nothing)
 ```
 
+## `nancy.cancelOrder(show)`
+Cancels an order based on order ID
+### Parameters
+- `order_id` - integer - the ID of the order to be cancelled - you can get order IDs from calling orders()
+
+### Example to cancel the order with the order ID of 1234567890
+```javascript
+nancy.cancelOrder('1234567890');
+```
+output
+```
+TO DO (should be the response from binance letting you know it went through)
+```
+
+## `nancy.risk()`
+Returns the open positions list
+### Parameters
+- Takes no parameters
+
+### Example to get the account's open positions
+```javascript
+nancy.risk();
+```
+output
+```
+TO DO (big fat JSON object)
+```
+
+## `nancy.candles(interval, start_time, end_time, limit)`
+Returns the candlestick data of a range in time
+- Set start_time to 0 if you just want the most recent candlestick data
+### Parameters
+- `interval` - string - ex:`'1m'` = 1 minute, `'1M'` = 1 month; check binance's docs for full list of candlestick timeframes
+- `start_time` - int - beginning of the dataset you'd like to retrieve (unix time in ms)
+- `end_time`  - int - end of the dataset you'd like to retrieve (unix time in ms)
+- `limit` - int - how many candles you want to return - should match the start/end interval if using start and end times
+
+### Example to get the last 50 1 hour candlesticks 
+```javascript
+let start = nancy.epochAt('hr', 50, -1); //gets the timestamp for 50 hours ago
+nancy.candles("1H", start, Date.now() - 1, 50);
+```
+output
+```
+TO DO
+```
+
 
 # Example Program
 
