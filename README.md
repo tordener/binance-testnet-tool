@@ -285,7 +285,7 @@ Returns the candlestick data of a range in time
 
 ### Example to get the last 50 1 hour candlesticks 
 ```javascript
-let start = nancy.epochAt('hr', 50, -1); //gets the timestamp for 50 hours ago
+let start = quant.epochAt('hr', 50, -1); //gets the timestamp for 50 hours ago
 nancy.candles("1H", start, Date.now() - 1, 50);
 ```
 output
