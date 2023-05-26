@@ -1,8 +1,11 @@
 # binance-testnet-tool
-Some pretty simple functions to do a bit of trading on Binance's testnet API with node
+Some basic functions to do a bit of trading on Binance's testnet API with node
 
-Pretty sure that you will need node version > 17 to use fetch or crypto
-- A few of these functions are unfinished, check the doc block description when you are implementing them first
+Pretty sure that you will need node version > 17 to use either fetch or crypto. Can't remember which one.
+
+ A few of these functions are unfinished, check the doc block description when you are implementing them first
+
+# Setup
 - To configure this, edit the .env file with your API key and secret
 
 ### .env file configuration
