@@ -223,7 +223,7 @@ Places an order for the specified symbol at the specified price, courteously ret
 - `price` - float - price at which the order is to be filled (check precision requirements on binance docs)
 - `tense` - integer - `-1` = past `1` = future
 
-### Example to get the timestamp 20 seconds ago
+### Example to place a buy order for the price of 91.26
 ```javascript
 nancy.order('BUY', 91.26);
 ```
