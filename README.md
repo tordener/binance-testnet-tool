@@ -216,6 +216,36 @@ output
 ]
 ```
 
+## `nancy.order(side, price)`
+Places an order for the specified symbol at the specified price, courteously returns 
+### Parameters
+- `side` - string - `'BUY'` for long/buy, `'SELL'` for short/sell
+- `price` - float - price at which the order is to be filled (check precision requirements on binance docs)
+- `tense` - integer - `-1` = past `1` = future
+
+### Example to get the timestamp 20 seconds ago
+```javascript
+nancy.order('BUY', 91.26);
+```
+output
+```
+TO DO (should be nothing)
+```
+
+## `nancy.orders(show)`
+Returns the open orders list on the binance account 
+### Parameters
+- `show` - boolean true will print the orders to the console
+
+### Example to get the account's open orders
+```javascript
+nancy.orders(true);
+```
+output
+```
+TO DO (should be nothing)
+```
+
 
 # Example Program
 
